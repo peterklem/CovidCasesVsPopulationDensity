@@ -31,3 +31,11 @@ boxplot(PercentagePositive,
 
 # Q1.d 
 # create a bar graph of the data
+barplot(PercentagePositive,
+        xlab="Counties in New England",
+        ylab="Percentage of county that has tested COVID positive")
+
+# I chose the barplot to visualize the data because it shows each individual 
+# county's percentage of people who have tested positive for COVID. It is a good
+# visual indicator to show there are only 5 or 6 counties in New England that 
+# have over 10% positivity rate.
