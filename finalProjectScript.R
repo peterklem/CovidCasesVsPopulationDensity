@@ -1,6 +1,6 @@
 library("xlsx")
-
-setwd("C:\\Users\\Peter\\Documents\\School\\Spring 2021\\Repositories\\CovidCasesVsPopulationDensity")
+setwd("~/Classes/Prob and Stat/Final/CovidCasesVsPopulationDensity")
+#setwd("C:\\Users\\Peter\\Documents\\School\\Spring 2021\\Repositories\\CovidCasesVsPopulationDensity")
 
 
 covidPopDensityData <- read.xlsx("final_project_covid_data.xlsx", 1, header=TRUE) #Import data
@@ -39,3 +39,41 @@ barplot(PercentagePositive,
 # county's percentage of people who have tested positive for COVID. It is a good
 # visual indicator to show there are only 5 or 6 counties in New England that 
 # have over 10% positivity rate.
+
+
+#independent : Population Density
+#dependent : Infection %
+#Q2.A
+summary(lm(PercentagePositive~PplPerSqKm))
+plot(PplPerSqKm,PercentagePositive,xlab = "People Per Sq Km",ylab = "Percentage Postive")
+#Q2.B
+abline(lm(PercentagePositive~PplPerSqKm))
+text(x=4000,y=6,label="y=0.0023035x+3.8")
+#equation: y=187.46x-447.97
+#Q2.B.1
+# y=0.0023035x+3.8
+# y=0.0023035(1000)+3.8
+# y=6.1035 % 
+#Q2.B.2
+# y=0.0023035x+3.8
+# (8)=0.0023035x+3.8
+# x=1823.31 Ppl/SqKm
+#Q2.C
+r_value <- cor(PplPerSqKm,PercentagePositive)
+#The r value shows moderate and positive correlation between strength and temperature as .657 falls within the 0.5-0.8 range.
+
+#part E
+rsquared_value <- (r_value*r_value)
+#The r squared value shows a 43% variability that can be attributed to the linear relationship between population density and total infections. 
+
+#Q2.E
+qqnorm(PercentagePositive)
+qqline(PercentagePositive)
+#The data shown in the QQ norm plot displays a linear curve providing confidence that population density is correlated with the total covid infection count. 
+
+
+
+
+
+
+
