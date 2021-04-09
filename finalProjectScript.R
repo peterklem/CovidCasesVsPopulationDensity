@@ -49,6 +49,7 @@ plot(PplPerSqKm,PercentagePositive,xlab = "People Per Sq Km",ylab = "Percentage 
 #Q2.B
 abline(lm(PercentagePositive~PplPerSqKm))
 text(x=4000,y=6,label="y=0.0023035x+3.8")
+text(x=5000,y=9.5,label="Boston")
 #equation: y=187.46x-447.97
 #Q2.B.1
 # y=0.0023035x+3.8
@@ -109,10 +110,10 @@ cat("The 95% confidence interval for the true population mean Percentage that te
 #B. i Margin of Error
 
 n_popdensity = nrow(covidPopDensityData) #Find population size
-X_popdensity = mean(PplPerSqMi) #Find Population mean
+X_popdensity = mean(PplPerSqKm) #Find Population mean
 
-sample_var_popdensity = var(PplPerSqMi) #Finds the sample variance
-sample_sd_popdensity = sd(PplPerSqMi) #Finds the sample standard deviation
+sample_var_popdensity = var(PplPerSqKm) #Finds the sample variance
+sample_sd_popdensity = sd(PplPerSqKm) #Finds the sample standard deviation
 
 #For Z, we need POPULATION var/sd, so we will switch using formulas:
 population_var_popdensity = (((n_popdensity-1)/n_popdensity)*sample_var_popdensity)
