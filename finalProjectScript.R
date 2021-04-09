@@ -72,7 +72,71 @@ qqline(PercentagePositive)
 #The data shown in the QQ norm plot displays a linear curve providing confidence that population density is correlated with the total covid infection count. 
 
 
+#Question 3
+#A. i Margin of Error
 
+n_percentage = nrow(covidPopDensityData) #Find population size
+X_percentage = mean(PercentagePositive) #Find Population mean
+
+sample_var_percentage = var(PercentagePositive) #Finds the sample variance
+sample_sd_percentage = sd(PercentagePositive) #Finds the sample standard deviation
+
+#For Z, we need POPULATION var/sd, so we will switch using formulas:
+population_var_percentage = (((n_percentage-1)/n_percentage)*sample_var_percentage)
+population_sd_percentage = sqrt(population_var_percentage)
+
+#Find Critical Value
+alpha_95 = 0.05 #95% = (1-alpha)*100%
+z_critical_value_95 = qnorm(1-(alpha_95/2))
+
+#Find Margin of Error
+z_ME_95 = z_critical_value_95 * (population_sd_percentage/(sqrt(n_percentage)))
+
+#A. ii FIND 95% CI
+lower_bound_z_95 = X_percentage - z_ME_95
+upper_bound_z_95 = X_percentage + z_ME_95
+
+#A. iii Interpretation
+cat("The 95% confidence interval for the true population mean Percentage that tested positive  is: (", 
+    lower_bound_z_95,
+    ", ",
+    upper_bound_z_95,
+    ").")
+
+#The 95% confidence interval for the true population mean Percentage that tested positive  is: ( 4.21067 ,  5.547157 )
+
+
+#B. i Margin of Error
+
+n_popdensity = nrow(covidPopDensityData) #Find population size
+X_popdensity = mean(PplPerSqMi) #Find Population mean
+
+sample_var_popdensity = var(PplPerSqMi) #Finds the sample variance
+sample_sd_popdensity = sd(PplPerSqMi) #Finds the sample standard deviation
+
+#For Z, we need POPULATION var/sd, so we will switch using formulas:
+population_var_popdensity = (((n_popdensity-1)/n_popdensity)*sample_var_popdensity)
+population_sd_popdensity = sqrt(population_var_popdensity)
+
+#Find Critical Value
+alpha_95 = 0.05 #95% = (1-alpha)*100%
+z_critical_value_95 = qnorm(1-(alpha_95/2))
+
+#Find Margin of Error
+z_ME_95 = z_critical_value_95 * (population_sd_popdensity/(sqrt(n_popdensity)))
+
+#B. ii FIND 95% CI
+lower_bound_z_95 = X_popdensity - z_ME_95
+upper_bound_z_95 = X_popdensity + z_ME_95
+
+#B. iii Interpretation
+cat("The 95% confidence interval for the true population mean population density  is: (", 
+    lower_bound_z_95,
+    ", ",
+    upper_bound_z_95,
+    ").")
+
+#The 95% confidence interval for the true population mean population density  is: ( 183.522 ,  1002.442 ).
 
 
 
