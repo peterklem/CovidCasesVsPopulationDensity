@@ -1,3 +1,4 @@
+# Eoin Crotty, Peter Klembczyk, Myint Thurein
 library("xlsx")
 setwd("~/Classes/Prob and Stat/Final/CovidCasesVsPopulationDensity")
 #setwd("C:\\Users\\Peter\\Documents\\School\\Spring 2021\\Repositories\\CovidCasesVsPopulationDensity")
