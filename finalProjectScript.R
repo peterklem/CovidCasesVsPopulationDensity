@@ -45,7 +45,8 @@ barplot(PercentagePositive,
 #dependent : Infection %
 #Q2.A
 summary(lm(PercentagePositive~PplPerSqKm))
-plot(PplPerSqKm,PercentagePositive,xlab = "People Per Sq Km",ylab = "Percentage Postive")
+plot(PplPerSqKm,PercentagePositive,main = "Scatter Plot",
+     xlab = "People Per Sq Km",ylab = "Percentage Postive")
 #Q2.B
 abline(lm(PercentagePositive~PplPerSqKm))
 text(x=4000,y=6,label="y=0.0023035x+3.8")
@@ -61,14 +62,14 @@ text(x=5000,y=9.5,label="Boston")
 # x=1823.31 Ppl/SqKm
 #Q2.C
 r_value <- cor(PplPerSqKm,PercentagePositive)
-#The r value shows moderate and positive correlation between strength and temperature as .657 falls within the 0.5-0.8 range.
+#The r value shows moderate and positive correlation between population density and total infections as .657 falls within the 0.5-0.8 range.
 
 #part E
 rsquared_value <- (r_value*r_value)
 #The r squared value shows a 43% variability that can be attributed to the linear relationship between population density and total infections. 
 
 #Q2.E
-qqnorm(PercentagePositive)
+qqnorm(PercentagePositive,ylab = "Percentage Positive")
 qqline(PercentagePositive)
 #The data shown in the QQ norm plot displays a linear curve providing confidence that population density is correlated with the total covid infection count. 
 
@@ -138,6 +139,13 @@ cat("The 95% confidence interval for the true population mean population density
     ").")
 
 #The 95% confidence interval for the true population mean population density  is: ( 183.522 ,  1002.442 ).
+
+#Q4.A
+# QQnorm Plot, R Value, R Squared Value, Line of Regression, Margin of Error, Confidence Interval.
+#Q4.B
+# An alternative data set would be Average income of population vs infection count to compare how areas with more 
+# resources can deal with a pandemic vs poorer areas with less resources. 
+
 
 
 
